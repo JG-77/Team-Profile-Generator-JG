@@ -31,4 +31,9 @@ describe('Employee class', () => {
 
         expect(new Employee().getEmail()).toBe(undefined);
     });
+    //Test getRole()
+    it("should diplay the employee's role", () => {
+
+        expect(new Employee().getRole()).toBe('Employee');
+    });
 })
