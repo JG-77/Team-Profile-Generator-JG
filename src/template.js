@@ -1,4 +1,4 @@
-function managerCard() {
+function managerCard() { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>Name</strong></h5>
@@ -11,7 +11,7 @@ function managerCard() {
     </ul>`;
 }
 
-function engineerCard() {
+function engineerCard() { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>Name</strong></h5>
@@ -24,7 +24,7 @@ function engineerCard() {
     </ul>`;
 }
 
-function internCard() {
+function internCard() { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>Name</strong></h5>
@@ -56,7 +56,7 @@ function generateHTML () {
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
     </div>
-    ${teamRole.map(role => internCard(role))} 
+    ${teamRole.map(role => Card(role))} 
 
 </body>
 </html>`;
