@@ -32,11 +32,16 @@ const Manager = require('../lib/Manager');
                 type: 'input', 
                 name: 'id',
                 message: "What is this employee's ID?",
-                validate: data => /[a-z1-9]/gi.test(data), 
+                //validate: data => /[a-z1-9]/gi.test(data), 
                 },
             ])
             .then(data =>{
                 console.log(data.id)
+            //     if(data.id) {
+            //         console.log('ID input recieved!')
+            //     } else {
+            //        console.error('No input recieved!') 
+            //     }
             })
     }
     // Prompt asking employee email    
@@ -51,6 +56,11 @@ const Manager = require('../lib/Manager');
             ])
              .then(data =>{
                 console.log(data.email)
+            //     if(data.email) {
+            //         console.log('email input recieved!')
+            //     } else {
+            //        console.error('No input recieved!') 
+            //     }
             })
     }
     // Prompt asking employee role
@@ -65,7 +75,14 @@ const Manager = require('../lib/Manager');
                 },
             ])
             .then(data =>{
-                console.log(data.role)
+                console.log(data.role);
+                   //if(data.role === 'Manager') {
+            //         run askManagerOffice();
+            //     } else if(data.role === 'Engineer'){
+            //        run askEngineerGitHub();
+            //     } else if(data.role === 'Intern'){
+            //        run askInternSchool();
+            //     }
             })
     }
 
@@ -81,6 +98,12 @@ const Manager = require('../lib/Manager');
             ])
             .then(data =>{
                 console.log(data.office)
+            //     if(data.office) {
+            //         console.log('office number input recieved!')
+            
+            //     } else {
+            //        console.error('No input recieved!') 
+            //     }
             })
     }   
       
@@ -96,6 +119,11 @@ const Manager = require('../lib/Manager');
             ])
             .then(data =>{
                 console.log(data.gitHub)
+            //     if(data.gitHub) {
+            //         console.log('username input recieved!')
+            //     } else {
+            //        console.error('No input recieved!') 
+            //     }
             })
     }   
 
@@ -111,6 +139,11 @@ const Manager = require('../lib/Manager');
             ])
             .then(data =>{
                 console.log(data.school)
+            //     if(data.school) {
+            //         console.log('school input recieved!')
+            //     } else {
+            //        console.error('No input recieved!') 
+            //     }
             })
     } 
 
