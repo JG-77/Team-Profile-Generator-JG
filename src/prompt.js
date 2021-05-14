@@ -4,67 +4,39 @@ const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 
-// class AskPrompt {} will I need a class?
-
     // Prompt asking employee name
-    function askEmployeeName() {
+    function askEmployeeQuestions() {
         inquirer.prompt([
                 {
                 type: 'input', 
                 name: 'name',
                 message: "What is the employee's name?",
                 },
-            ])
-            .then(data =>{
-               console.log(data.name) //const getName = getName(data.name);
-            //     if(getName) {
-            //         console.log('Name input recieved!')
-            //     } else {
-            //        console.error('No input recieved!') 
-            //     }
-            })
-    }
-    // Prompt asking employee ID
-    function askEmployeeId() {
-        inquirer
-            .prompt([
-                {
+                 {
                 type: 'input', 
                 name: 'id',
                 message: "What is this employee's ID?",
                 //validate: data => /[a-z1-9]/gi.test(data), 
                 },
-            ])
-            .then(data =>{
-                console.log(data.id)
-            //     if(data.id) {
-            //         console.log('ID input recieved!')
-            //     } else {
-            //        console.error('No input recieved!') 
-            //     }
-            })
-    }
-    // Prompt asking employee email    
-    function askEmployeeEmail() {
-        inquirer
-            .prompt([
-                {
+                 {
                 type: 'input', 
                 name: 'email',
                 message: "What is this employee's email?",
                 },
             ])
-             .then(data =>{
-                console.log(data.email)
-            //     if(data.email) {
-            //         console.log('email input recieved!')
-            //     } else {
-            //        console.error('No input recieved!') 
-            //     }
+            .then(data =>{
+               console.log(data.name) //const getName = getName(data.name);
+                if(data.name) {
+                    console.log('Name input recieved!')
+                    askRole(data);
+                } else {
+                   console.error('No input recieved!') 
+                }
             })
     }
+    
     // Prompt asking employee role
-    function askRole() {
+    function askRole(data) {
         inquirer
             .prompt([
                 {
@@ -74,20 +46,21 @@ const Manager = require('../lib/Manager');
                 choices: ['Manager', 'Engineer', 'Intern'] //choice will then lead to one of the following functions
                 },
             ])
-            .then(data =>{
-                console.log(data.role);
-                   //if(data.role === 'Manager') {
-            //         run askManagerOffice();
-            //     } else if(data.role === 'Engineer'){
-            //        run askEngineerGitHub();
-            //     } else if(data.role === 'Intern'){
-            //        run askInternSchool();
-            //     }
+            .then(dataRole =>{
+                
+                console.log(dataRole.role);
+                   if(dataRole.role === 'Manager') {
+                    askManagerOffice(data);
+                } else if(dataRole.role === 'Engineer'){
+                   askEngineerGitHub(data);
+                } else if(dataRole.role === 'Intern'){
+                   askInternSchool(data);
+                }
             })
     }
 
      // Prompt asking Manager office number (if user selected manager)
-    function askManagerOffice() {
+    function askManagerOffice(data) {
         inquirer
             .prompt([
                 {
@@ -96,19 +69,21 @@ const Manager = require('../lib/Manager');
                 message: "What is this manager's office number?",
                 },
             ])
-            .then(data =>{
-                console.log(data.office)
-            //     if(data.office) {
-            //         console.log('office number input recieved!')
-            
-            //     } else {
-            //        console.error('No input recieved!') 
-            //     }
+            .then(dataOff =>{
+                console.log(dataOff.office)
+                data.office = dataOff.office;
+                if(dataOff.office) {
+                    console.log('office number input recieved!')
+                    const newManager = new Manager(data.name, data.id, data.email, data.office)
+                    console.log(newManager);
+                } else {
+                   console.error('No input recieved!') 
+                }
             })
     }   
       
     // Prompt asking Engineer GitHub Username (if user selected engineer)
-    function askEngineerGitHub() {
+    function askEngineerGitHub(data) {
         inquirer
             .prompt([
                 {
@@ -117,18 +92,21 @@ const Manager = require('../lib/Manager');
                 message: "What is this engineer's GitHub username?",
                 },
             ])
-            .then(data =>{
-                console.log(data.gitHub)
-            //     if(data.gitHub) {
-            //         console.log('username input recieved!')
-            //     } else {
-            //        console.error('No input recieved!') 
-            //     }
+            .then(dataGit =>{
+                console.log(dataGit.gitHub)
+                data.gitHub = dataGit.gitHub
+                const newEngineer = new Engineer(data.name, data.id, data.email, data.gitHub)
+                console.log(newEngineer);
+                if(dataGit.gitHub) {
+                    console.log('username input recieved!')
+                } else {
+                   console.error('No input recieved!') 
+                }
             })
     }   
 
     // Prompt asking Intern's school (if user selected intern)
-    function askInternSchool() {
+    function askInternSchool(data) {
         inquirer
             .prompt([
                 {
@@ -137,20 +115,21 @@ const Manager = require('../lib/Manager');
                 message: "At what school is this intern studying?",
                 },
             ])
-            .then(data =>{
-                console.log(data.school)
-            //     if(data.school) {
-            //         console.log('school input recieved!')
-            //     } else {
-            //        console.error('No input recieved!') 
-            //     }
+            .then(dataSchool =>{
+                console.log(dataSchool.school)
+                data.school = dataSchool.school
+                const newIntern = new Intern(data.name, data.id, data.email, data.school)
+                console.log(newIntern);
+                if(dataSchool.school) {
+                    console.log('school input recieved!')
+                } else {
+                   console.error('No input recieved!') 
+                }
             })
     } 
 
-// askEmployeeName();
-// askEmployeeId();
-// askEmployeeEmail();
 // askRole();
+ askEmployeeQuestions();
 // askManagerOffice();
 // askEngineerGitHub();
 // askInternSchool();

@@ -1,4 +1,4 @@
-function managerCard() { //role
+function managerCard(data) { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
@@ -11,7 +11,7 @@ function managerCard() { //role
     </ul>`;
 }
 
-function engineerCard() { //role
+function engineerCard(data) { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
@@ -24,7 +24,7 @@ function engineerCard() { //role
     </ul>`;
 }
 
-function internCard() { //role
+function internCard(data) { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
@@ -37,7 +37,7 @@ function internCard() { //role
     </ul>`;
 }
 
-function generateHTML () {
+function generateHTML (teamRole) {
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
