@@ -60,12 +60,17 @@ function generateHTML (teamRole) {
     </body>
     </html>`;
 } //card function will be inserted here
-//${teamRole.map(role => Card(role))} 
 
-// module.exports = {
-//     generateHTML,
-//     internCard,
-//     managerCard,
-//     engineerCard,
+// ${teamRole.map((role, i) =>
+//    f )} 
+
+
+// if(teamRole[i].askRole() === "Manager") { //how do I insert in line 59?
+//     managerCard();
+// } else if(teamRole[i].askRole() === "Engineer") {
+//     engineerCard();
+// } else if(teamRole[i].askRole() === "Engineer") {
+//     internCard();
 // }
+
 module.exports = generateHTML;

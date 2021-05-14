@@ -1,8 +1,5 @@
 const inquirer = require('inquirer');
 const generateHTML = require('./template')
-// const internCard = generateHTML.internCard;
-// const managerCard = generateHTML.managerCard;
-// const engineerCard = generateHTML.engineerCard;
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
@@ -36,7 +33,7 @@ function askEmployeeQuestions() {
             },
         ])
         .then(data =>{
-           console.log(data.name) //const getName = getName(data.name);
+           console.log(data.name)
             if(data.name) {
                 console.log('Name input recieved!')
                 askRole(data);
@@ -157,7 +154,6 @@ function createAnother(data) {
             if(dataOpt.option === 'Yes, create another role.') {
                 askEmployeeQuestions();
             } else {
-                //console.log(data)
                 createFile(data);
             }
         })
@@ -165,8 +161,7 @@ function createAnother(data) {
 
 function createFile(data) {
     writeToFile('../../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
-    console.log('Successfully generated HTML file')
-    //.catch((err) => console.error(err));
+    console.log('Successfully generated HTML file in "dist" folder')
 }
 
 askEmployeeQuestions();
