@@ -4,13 +4,13 @@ const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 
-class AskPrompt {
+// class AskPrompt {
 
-    constructor () {
+//     constructor () {
 
-    }
+//     }
     // Prompt asking employee name
-    askEmployeeName() {
+    function askEmployeeName() {
         inquirer.prompt([
                 {
                 type: 'input', 
@@ -19,12 +19,12 @@ class AskPrompt {
                 },
             ])
             .then(data =>{
-                const getName = getName(data.name);
-                if(getName) {
-                    console.log('Name input recieved!')
-                } else {
-                   console.error('No input recieved!') 
-                }
+               console.log(data.name) //const getName = getName(data.name);
+            //     if(getName) {
+            //         console.log('Name input recieved!')
+            //     } else {
+            //        console.error('No input recieved!') 
+            //     }
             })
     }
     // Prompt asking employee ID
@@ -74,6 +74,6 @@ class AskPrompt {
         
         
         
-    }
-AskPrompt.askEmployeeName();
+    //}
+askEmployeeName();
     
