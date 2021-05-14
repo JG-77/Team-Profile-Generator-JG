@@ -151,15 +151,19 @@ function createAnother(data) {
             if(dataOpt.option === 'Yes, create another role.') {
                 askEmployeeQuestions();
             } else {
-                console.log(data)
-                // .then((data) => writeToFile('../../Team-Profile-Generator/dist/index.html', generateHTML(data)))
-                // .then(() => console.log('Successfully generated HTML file'))
-                // .catch((err) => console.error(err));
+                //console.log(data)
+                createFile(data);
             }
         })
 }
 
-    askEmployeeQuestions();
+function createFile(data) {
+    writeToFile('../../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
+    console.log('Successfully generated HTML file')
+    //.catch((err) => console.error(err));
+}
+
+askEmployeeQuestions();
     
 
 
