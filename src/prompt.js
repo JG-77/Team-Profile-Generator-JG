@@ -75,7 +75,7 @@ function askManagerOffice(data) {
             console.log(newManager);
             if(dataOff.office) {
                 console.log('office number input recieved!')
-                createAnother();
+                createAnother(data);
             } else {
                console.error('No input recieved!') 
             }
@@ -99,7 +99,7 @@ function askEngineerGitHub(data) {
             console.log(newEngineer);
             if(dataGit.gitHub) {
                 console.log('username input recieved!')
-                createAnother();
+                createAnother(data);
             } else {
                console.error('No input recieved!') 
             }
@@ -123,7 +123,7 @@ function askInternSchool(data) {
             console.log(newIntern);
             if(dataSchool.school) {
                 console.log('school input recieved!')
-                createAnother();
+                createAnother(data);
             } else {
                console.error('No input recieved!') 
             }
