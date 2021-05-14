@@ -1,39 +1,39 @@
 function managerCard() { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title text-center"><strong>Name</strong></h5>
+        <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
         <p class="card-text text-center">Manager</p>
     </div>
     <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: </li>
-        <li class="list-group-item bg-success text-white">Email: </li>
-        <li class="list-group-item bg-success text-white">Office number: </li>
+        <li class="list-group-item bg-success text-white">Id: ${data.id}</li>
+        <li class="list-group-item bg-success text-white">Email: ${data.email}</li>
+        <li class="list-group-item bg-success text-white">Office number: ${data.office}</li>
     </ul>`;
 }
 
 function engineerCard() { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title text-center"><strong>Name</strong></h5>
+        <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
         <p class="card-text text-center">Engineer</p>
     </div>
     <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: </li>
-        <li class="list-group-item bg-success text-white">Email: </li>
-        <li class="list-group-item bg-success text-white">GitHub: https://github.com/ </li>
+        <li class="list-group-item bg-success text-white">Id: ${data.id}</li>
+        <li class="list-group-item bg-success text-white">Email: ${data.email}</li>
+        <li class="list-group-item bg-success text-white">GitHub: <a href="https://github.com/${data.gitHub}">https://github.com/${data.gitHub}</a></li>
     </ul>`;
 }
 
 function internCard() { //role
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title text-center"><strong>Name</strong></h5>
+        <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
         <p class="card-text text-center">Intern</p>
     </div>
     <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: </li>
-        <li class="list-group-item bg-success text-white">Email: </li>
-        <li class="list-group-item bg-success text-white">School: </li>
+        <li class="list-group-item bg-success text-white">Id: ${data.id}</li>
+        <li class="list-group-item bg-success text-white">Email: ${data.email}</li>
+        <li class="list-group-item bg-success text-white">School: ${data.school}</li>
     </ul>`;
 }
 
