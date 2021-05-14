@@ -56,10 +56,10 @@ function generateHTML (teamRole) {
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
     </div>
-    ${teamRole.map(role => Card(role))} 
-
-</body>
-</html>`;
+    
+    </body>
+    </html>`;
 }
+//${teamRole.map(role => Card(role))} 
 
 module.exports = generateHTML;

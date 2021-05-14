@@ -3,6 +3,12 @@ const generateHTML = require('./template')
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
+const fs = require('fs');
+const path = require('path');
+
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+}
 
 // Prompt asking employee namen id, and email
 function askEmployeeQuestions() {
@@ -146,8 +152,14 @@ function createAnother(data) {
                 askEmployeeQuestions();
             } else {
                 console.log(data)
+                // .then((data) => writeToFile('../../Team-Profile-Generator/dist/index.html', generateHTML(data)))
+                // .then(() => console.log('Successfully generated HTML file'))
+                // .catch((err) => console.error(err));
             }
         })
 }
 
- askEmployeeQuestions();
+    askEmployeeQuestions();
+    
+
+
