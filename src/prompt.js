@@ -130,7 +130,7 @@ function askInternSchool(data) {
         })
 } 
 
-function createAnother() {
+function createAnother(data) {
     inquirer
         .prompt([
            {
@@ -145,7 +145,7 @@ function createAnother() {
             if(dataOpt.option === 'Yes, create another role.') {
                 askEmployeeQuestions();
             } else {
-                console.log('done')
+                console.log(data)
             }
         })
 }
