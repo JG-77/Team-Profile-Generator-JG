@@ -1,10 +1,15 @@
 const inquirer = require('inquirer');
 const generateHTML = require('./template')
+// const internCard = generateHTML.internCard;
+// const managerCard = generateHTML.managerCard;
+// const engineerCard = generateHTML.engineerCard;
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 const fs = require('fs');
 const path = require('path');
+
+
 
 function writeToFile(fileName, data) {
   return fs.writeFileSync(path.join(process.cwd(), fileName), data);
@@ -106,6 +111,7 @@ function askEngineerGitHub(data) {
             if(dataGit.gitHub) {
                 console.log('username input recieved!')
                 createAnother(data);
+                
             } else {
                console.error('No input recieved!') 
             }

@@ -59,7 +59,13 @@ function generateHTML (teamRole) {
     
     </body>
     </html>`;
-}
+} //card function will be inserted here
 //${teamRole.map(role => Card(role))} 
 
+// module.exports = {
+//     generateHTML,
+//     internCard,
+//     managerCard,
+//     engineerCard,
+// }
 module.exports = generateHTML;
