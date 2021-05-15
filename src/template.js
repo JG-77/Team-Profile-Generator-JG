@@ -52,16 +52,11 @@ function internCard(data) {
 }
 
 function generateHTML (teamRole) {
-    //console.log(teamRole)
    
      function teamRoleTemplate(teamArray) {
-         //console.log(teamArray); // returns --> [ Manager { name: 'input', id: 'input', email: 'input', officeNum: '4' } ]
     for(let i = 0; i < teamArray.length; i++) {
-        const role = teamArray[i].getRole();
-        //console.log(role);
-        //conditionals to check roles
-        if(role === "Manager") { 
-            
+        const role = teamArray[i].getRole();       
+        if(role === "Manager") {             
             cardArray.push(managerCard(teamArray[i]));
         } else if(role === "Engineer") {
             cardArray.push(engineerCard(teamArray[i]));
@@ -70,6 +65,7 @@ function generateHTML (teamRole) {
         }
     }}
     
+ teamRoleTemplate(teamRole);
 
 return `<!DOCTYPE html>
 <html lang="en">
@@ -90,7 +86,6 @@ return `<!DOCTYPE html>
         </div>
     </div>
     <main>
-    ${teamRoleTemplate(teamRole)}
     ${cardArray}
     
     </main>
