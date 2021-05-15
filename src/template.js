@@ -43,7 +43,7 @@ function generateHTML (teamRole) {
     //console.log(teamRole)
    
      function teamRoleTemplate(teamArray) {
-         //console.log(teamArray);
+         console.log(teamArray); // returns --> [ Manager { name: 'input', id: 'input', email: 'input', officeNum: '4' } ]
     for(let i = 0; i < teamArray.length; i++) {
         const role = teamArray[i].getRole();
         //console.log(role);
@@ -77,7 +77,7 @@ return `<!DOCTYPE html>
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
     ${teamRoleTemplate(teamRole)}
-    
+
     ${cardArray}
     
     </div>
