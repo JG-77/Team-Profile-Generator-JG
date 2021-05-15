@@ -1,20 +1,23 @@
 let cardArray = []
 
 function managerCard(data) { 
-    return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
+     console.log(JSON.stringify(data))
+    return `
+    <div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title text-center"><strong>${data.getName()}</strong></h5>
+        <h5 class="card-title text-center"><strong>${data[0].getName()}</strong></h5>
         <p class="card-text text-center">Manager</p>
     </div>
     <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: ${data.getID()}</li>
-        <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
-        <li class="list-group-item bg-success text-white">Office number: ${data.getOfficeNum()}</li>
+        <li class="list-group-item bg-success text-white">Id: ${data[0].getId()}</li>
+        <li class="list-group-item bg-success text-white">Email: ${data[0].getEmail()}</li>
+        <li class="list-group-item bg-success text-white">Office number: ${data[0].getOfficeNum()}</li>
     </ul>`;
 }
 
 function engineerCard(data) { 
-    return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
+    return `
+    <div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
         <p class="card-text text-center">Engineer</p>
@@ -27,7 +30,8 @@ function engineerCard(data) {
 }
 
 function internCard(data) { 
-    return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
+    return `
+    <div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
         <p class="card-text text-center">Intern</p>
@@ -43,18 +47,18 @@ function generateHTML (teamRole) {
     //console.log(teamRole)
    
      function teamRoleTemplate(teamArray) {
-         console.log(teamArray); // returns --> [ Manager { name: 'input', id: 'input', email: 'input', officeNum: '4' } ]
+         //console.log(teamArray); // returns --> [ Manager { name: 'input', id: 'input', email: 'input', officeNum: '4' } ]
     for(let i = 0; i < teamArray.length; i++) {
         const role = teamArray[i].getRole();
         //console.log(role);
         //conditionals to check roles
         if(role === "Manager") { 
             //managerCard(teamArray);
-            cardArray.push(managerCard(teamArray))
+            cardArray.push(managerCard(teamArray));
         } else if(role === "Engineer") {
-            engineerCard(teamArray);
+            cardArray.push(engineerCard(teamArray));
         } else if(role === "Intern") {
-            internCard(teamArray);
+            cardArray.push(internCard(teamArray))
         }
     }}
     
@@ -76,8 +80,8 @@ return `<!DOCTYPE html>
             <h1 class="display-4 text-center text-white">Project Team</h1>
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
+    
     ${teamRoleTemplate(teamRole)}
-
     ${cardArray}
     
     </div>
