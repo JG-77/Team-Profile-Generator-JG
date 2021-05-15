@@ -5,7 +5,7 @@ const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 const fs = require('fs');
 const path = require('path');
-
+let teamArray = [];
 
 
 function writeToFile(fileName, data) {
@@ -80,7 +80,8 @@ function askManagerOffice(data) {
             console.log(dataOff.office)
             data.office = dataOff.office;
             const newManager = new Manager(data.name, data.id, data.email, data.office)
-            console.log(newManager);
+            teamArray.push(newManager);
+
             if(dataOff.office) {
                 console.log('office number input recieved!')
                 createAnother(data);
@@ -104,7 +105,7 @@ function askEngineerGitHub(data) {
             console.log(dataGit.gitHub)
             data.gitHub = dataGit.gitHub
             const newEngineer = new Engineer(data.name, data.id, data.email, data.gitHub)
-            console.log(newEngineer);
+            teamArray.push(newEngineer);
             if(dataGit.gitHub) {
                 console.log('username input recieved!')
                 createAnother(data);
@@ -129,7 +130,7 @@ function askInternSchool(data) {
             console.log(dataSchool.school)
             data.school = dataSchool.school
             const newIntern = new Intern(data.name, data.id, data.email, data.school)
-            console.log(newIntern);
+            teamArray.push(newIntern);
             if(dataSchool.school) {
                 console.log('school input recieved!')
                 createAnother(data);
@@ -154,7 +155,8 @@ function createAnother(data) {
             if(dataOpt.option === 'Yes, create another role.') {
                 askEmployeeQuestions();
             } else {
-                createFile(data);
+                //console.log(teamArray)
+                createFile(teamArray);
             }
         })
 }
@@ -162,7 +164,7 @@ function createAnother(data) {
 function createFile(data) {
     writeToFile('../../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
     console.log('Successfully generated HTML file in "dist" folder')
-    console.log(data)
+    //console.log(data)
 }
 
 askEmployeeQuestions();
