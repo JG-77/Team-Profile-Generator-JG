@@ -38,7 +38,21 @@ function internCard(data) { //role
 }
 
 function generateHTML (teamRole) {
-    return `<!DOCTYPE html>
+    
+    const teamRoleTemplate = teamRole.map((role, i) => {
+        role = function(data) {
+        //conditionals to check roles
+        if(teamRole[i].askRole(data) === "Manager") { //conditionals to check roles
+            managerCard(data);
+        } else if(teamRole[i].askRole(data) === "Engineer") {
+            engineerCard(data);
+        } else if(teamRole[i].askRole(data) === "Engineer") {
+            internCard(data);
+        }
+    }
+    })
+
+return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,21 +70,10 @@ function generateHTML (teamRole) {
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
     </div>
-    
+    ${teamRoleTemplate}
     </body>
     </html>`;
-} //card function will be inserted here
+} 
 
-// ${teamRole.map((role, i) => //how do I insert in line 59?
-//    //??
-//     )}
-    
-// if(teamRole[i].askRole() === "Manager") { //conditionals to check roles
-//     managerCard();
-// } else if(teamRole[i].askRole() === "Engineer") {
-//     engineerCard();
-// } else if(teamRole[i].askRole() === "Engineer") {
-//     internCard();
-// }
 
 module.exports = generateHTML;
