@@ -61,11 +61,11 @@ function generateHTML (teamRole) {
     </html>`;
 } //card function will be inserted here
 
-// ${teamRole.map((role, i) =>
-//    f )} 
-
-
-// if(teamRole[i].askRole() === "Manager") { //how do I insert in line 59?
+// ${teamRole.map((role, i) => //how do I insert in line 59?
+//    //??
+//     )}
+    
+// if(teamRole[i].askRole() === "Manager") { //conditionals to check roles
 //     managerCard();
 // } else if(teamRole[i].askRole() === "Engineer") {
 //     engineerCard();
