@@ -81,7 +81,6 @@ function askManagerOffice(data) {
             data.office = dataOff.office;
             const newManager = new Manager(data.name, data.id, data.email, data.office)
             teamArray.push(newManager);
-
             if(dataOff.office) {
                 console.log('office number input recieved!')
                 createAnother(data);
@@ -164,7 +163,7 @@ function createAnother(data) {
 function createFile(data) {
     writeToFile('../../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
     console.log('Successfully generated HTML file in "dist" folder')
-    //console.log(data)
+    
 }
 
 askEmployeeQuestions();

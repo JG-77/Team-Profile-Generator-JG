@@ -1,4 +1,6 @@
-function managerCard(data) { //role
+let cardArray = []
+
+function managerCard(data) { 
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
@@ -11,7 +13,7 @@ function managerCard(data) { //role
     </ul>`;
 }
 
-function engineerCard(data) { //role
+function engineerCard(data) { 
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
@@ -24,7 +26,7 @@ function engineerCard(data) { //role
     </ul>`;
 }
 
-function internCard(data) { //role
+function internCard(data) { 
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
@@ -44,14 +46,15 @@ function generateHTML (teamRole) {
          //console.log(teamArray);
     for(let i = 0; i < teamArray.length; i++) {
         const role = teamArray[i].getRole();
-        console.log(role);
+        //console.log(role);
         //conditionals to check roles
-        if(role === "Manager") { //conditionals to check roles
-            managerCard(data);
+        if(role === "Manager") { 
+            //managerCard(teamArray);
+            cardArray.push(managerCard(teamArray))
         } else if(role === "Engineer") {
-            engineerCard(data);
+            engineerCard(teamArray);
         } else if(role === "Intern") {
-            internCard(data);
+            internCard(teamArray);
         }
     }}
     
@@ -74,6 +77,9 @@ return `<!DOCTYPE html>
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
     ${teamRoleTemplate(teamRole)}
+    
+    ${cardArray}
+    
     </div>
     </body>
     </html>`;
