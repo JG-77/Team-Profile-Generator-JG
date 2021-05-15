@@ -3,13 +3,13 @@ let cardArray = []
 function managerCard(data) { 
     return `<div class="card text-white bg-success border border-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title text-center"><strong>${data.name}</strong></h5>
+        <h5 class="card-title text-center"><strong>${data.getName()}</strong></h5>
         <p class="card-text text-center">Manager</p>
     </div>
     <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: ${data.id}</li>
-        <li class="list-group-item bg-success text-white">Email: ${data.email}</li>
-        <li class="list-group-item bg-success text-white">Office number: ${data.office}</li>
+        <li class="list-group-item bg-success text-white">Id: ${data.getID()}</li>
+        <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
+        <li class="list-group-item bg-success text-white">Office number: ${data.getOfficeNum()}</li>
     </ul>`;
 }
 
