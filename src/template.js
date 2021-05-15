@@ -4,45 +4,51 @@ function managerCard(data) {
      //console.log(JSON.stringify(data))
     return `
     <div class="card text-white bg-success border border-2" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title text-center"><strong>${data[0].getName()}</strong></h5>
-        <p class="card-text text-center">Manager</p>
+        <div class="card-body">
+            <h5 class="card-title text-center"><strong>${data.getName()}</strong></h5>
+            <p class="card-text text-center">Manager</p>
+        </div>
+        <ul class="list-group list-group-flush p-2 bg-dark">
+            <li class="list-group-item bg-success text-white">Id: ${data.getId()}</li>
+            <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
+            <li class="list-group-item bg-success text-white">Office number: ${data.getOfficeNum()}</li>
+        </ul>
     </div>
-    <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: ${data[0].getId()}</li>
-        <li class="list-group-item bg-success text-white">Email: ${data[0].getEmail()}</li>
-        <li class="list-group-item bg-success text-white">Office number: ${data[0].getOfficeNum()}</li>
-    </ul>`;
+    `;
 }
 
 function engineerCard(data) { 
     console.log(JSON.stringify(data))
     return `
     <div class="card text-white bg-success border border-2" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title text-center"><strong>${data[0].getName()}</strong></h5>
-        <p class="card-text text-center">Engineer</p>
+        <div class="card-body">
+            <h5 class="card-title text-center"><strong>${data.getName()}</strong></h5>
+            <p class="card-text text-center">Engineer</p>
+        </div>
+        <ul class="list-group list-group-flush p-2 bg-dark">
+            <li class="list-group-item bg-success text-white">Id:  ${data.getId()}</li>
+            <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
+            <li class="list-group-item bg-success text-white">GitHub: <a href="https://github.com/${data.getGitHub()}">https://github.com/${data.getGitHub()}</a></li>
+        </ul>
     </div>
-    <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id:  ${data[0].getId()}</li>
-        <li class="list-group-item bg-success text-white">Email: ${data[0].getEmail()}</li>
-        <li class="list-group-item bg-success text-white">GitHub: <a href="https://github.com/${data[0].getGitHub()}">https://github.com/${data[0].getGitHub()}</a></li>
-    </ul>`;
+    `;
 }
 
 function internCard(data) { 
     //console.log(JSON.stringify(data))
     return `
     <div class="card text-white bg-success border border-2" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title text-center"><strong>${data[0].getName()}</strong></h5>
-        <p class="card-text text-center">Intern</p>
-    </div>
-    <ul class="list-group list-group-flush p-2 bg-dark">
-        <li class="list-group-item bg-success text-white">Id: ${data[0].getId()}</li>
-        <li class="list-group-item bg-success text-white">Email: ${data[0].getEmail()}</li>
-        <li class="list-group-item bg-success text-white">School: ${data[0].getSchool()}</li>
-    </ul>`;
+        <div class="card-body">
+            <h5 class="card-title text-center"><strong>${data.getName()}</strong></h5>
+            <p class="card-text text-center">Intern</p>
+        </div>
+        <ul class="list-group list-group-flush p-2 bg-dark">
+            <li class="list-group-item bg-success text-white">Id: ${data.getId()}</li>
+            <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
+            <li class="list-group-item bg-success text-white">School: ${data.getSchool()}</li>
+        </ul>
+    </div>`
+    ;
 }
 
 function generateHTML (teamRole) {
@@ -56,11 +62,11 @@ function generateHTML (teamRole) {
         //conditionals to check roles
         if(role === "Manager") { 
             
-            cardArray.push(managerCard(teamArray));
+            cardArray.push(managerCard(teamArray[i]));
         } else if(role === "Engineer") {
-            cardArray.push(engineerCard(teamArray));
+            cardArray.push(engineerCard(teamArray[i]));
         } else if(role === "Intern") {
-            cardArray.push(internCard(teamArray))
+            cardArray.push(internCard(teamArray[i]))
         }
     }}
     
@@ -82,15 +88,16 @@ return `<!DOCTYPE html>
             <h1 class="display-4 text-center text-white">Project Team</h1>
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
-    
+    </div>
+    <main>
     ${teamRoleTemplate(teamRole)}
     ${cardArray}
     
-    </div>
+    </main>
     </body>
     </html>`;
 } 
 
-//${teamRoleTemplate}
+
 
 module.exports = generateHTML;
