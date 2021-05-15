@@ -23,8 +23,7 @@ function askEmployeeQuestions() {
             {
             type: 'input', 
             name: 'id',
-            message: "What is this employee's ID?",
-            //validate: data => /[a-z1-9]/gi.test(data), 
+            message: "What is this employee's ID?", 
             },
             {
             type: 'input', 
@@ -33,9 +32,8 @@ function askEmployeeQuestions() {
             },
         ])
         .then(data =>{
-           console.log(data.name)
             if(data.name) {
-                console.log('Name input recieved!')
+                console.log('Input recieved!')
                 askRole(data);
             } else {
                console.error('No input recieved!') 
@@ -55,7 +53,6 @@ function askRole(data) {
             },
         ])
         .then(dataRole =>{    
-            console.log(dataRole.role);
             if(dataRole.role === 'Manager') {
                 askManagerOffice(data);
             } else if(dataRole.role === 'Engineer'){
@@ -77,12 +74,10 @@ function askManagerOffice(data) {
             },
         ])
         .then(dataOff =>{
-            console.log(dataOff.office)
             data.office = dataOff.office;
             const newManager = new Manager(data.name, data.id, data.email, data.office)
             teamArray.push(newManager);
             if(dataOff.office) {
-                console.log('office number input recieved!')
                 createAnother(data);
             } else {
                console.error('No input recieved!') 
@@ -101,12 +96,10 @@ function askEngineerGitHub(data) {
             },
         ])
         .then(dataGit =>{
-            console.log(dataGit.gitHub)
             data.gitHub = dataGit.gitHub
             const newEngineer = new Engineer(data.name, data.id, data.email, data.gitHub)
             teamArray.push(newEngineer);
             if(dataGit.gitHub) {
-                console.log('username input recieved!')
                 createAnother(data);
                 
             } else {
@@ -126,12 +119,10 @@ function askInternSchool(data) {
             },
         ])
         .then(dataSchool =>{
-            console.log(dataSchool.school)
             data.school = dataSchool.school
             const newIntern = new Intern(data.name, data.id, data.email, data.school)
             teamArray.push(newIntern);
             if(dataSchool.school) {
-                console.log('school input recieved!')
                 createAnother(data);
             } else {
                console.error('No input recieved!') 
@@ -146,15 +137,13 @@ function createAnother(data) {
             type: 'list', 
             name: 'option',
             message: "Would you like to add another role?",
-            choices: ['Yes, create another role.', 'No, these are all the roles.']
+            choices: ['Yes, create another role.', 'Finish team!']
             }, 
         ])
         .then(dataOpt =>{
-            console.log(dataOpt.option);
             if(dataOpt.option === 'Yes, create another role.') {
                 askEmployeeQuestions();
             } else {
-                //console.log(teamArray)
                 createFile(teamArray);
             }
         })
@@ -162,11 +151,8 @@ function createAnother(data) {
 
 function createFile(data) {
     writeToFile('../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
-    console.log('Successfully generated HTML file in "dist" folder')
+    console.log('Successfully generated team profile HTML file in "dist" folder')
     
 }
-
-//askEmployeeQuestions();
-    
 
 module.exports = askEmployeeQuestions;
