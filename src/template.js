@@ -38,19 +38,19 @@ function internCard(data) { //role
 }
 
 function generateHTML (teamRole) {
+//console.log(teamRole)
+     //function teamRoleTemplate() {
+    // for(let i = 0; i < teamRole.length; i++) {
+    //     //conditionals to check roles
+    //     if(teamRole[i].askRole(data) === "Manager") { //conditionals to check roles
+    //         managerCard(data);
+    //     } else if(teamRole[i].askRole(data) === "Engineer") {
+    //         engineerCard(data);
+    //     } else if(teamRole[i].askRole(data) === "Engineer") {
+    //         internCard(data);
+    //     }
+    // }}
     
-    const teamRoleTemplate = teamRole.map((role, i) => {
-        role = function(data) {
-        //conditionals to check roles
-        if(teamRole[i].askRole(data) === "Manager") { //conditionals to check roles
-            managerCard(data);
-        } else if(teamRole[i].askRole(data) === "Engineer") {
-            engineerCard(data);
-        } else if(teamRole[i].askRole(data) === "Engineer") {
-            internCard(data);
-        }
-    }
-    })
 
 return `<!DOCTYPE html>
 <html lang="en">
@@ -69,11 +69,12 @@ return `<!DOCTYPE html>
             <h1 class="display-4 text-center text-white">Project Team</h1>
             <p class="lead text-center text-white">Information on each project team member is displayed below.</p>
         </div>
+    ${console.log(teamRole)}
     </div>
-    ${teamRoleTemplate}
     </body>
     </html>`;
 } 
 
+//${teamRoleTemplate}
 
 module.exports = generateHTML;
