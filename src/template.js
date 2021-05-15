@@ -1,7 +1,6 @@
 let cardArray = []
 
 function managerCard(data) { 
-     //console.log(JSON.stringify(data))
     return `
     <div class="card text-white bg-success border border-2" style="width: 18rem;">
         <div class="card-body">
@@ -10,7 +9,7 @@ function managerCard(data) {
         </div>
         <ul class="list-group list-group-flush p-2 bg-dark">
             <li class="list-group-item bg-success text-white">Id: ${data.getId()}</li>
-            <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
+            <li class="list-group-item bg-success text-white">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
             <li class="list-group-item bg-success text-white">Office number: ${data.getOfficeNum()}</li>
         </ul>
     </div>
@@ -18,7 +17,6 @@ function managerCard(data) {
 }
 
 function engineerCard(data) { 
-    console.log(JSON.stringify(data))
     return `
     <div class="card text-white bg-success border border-2" style="width: 18rem;">
         <div class="card-body">
@@ -27,15 +25,14 @@ function engineerCard(data) {
         </div>
         <ul class="list-group list-group-flush p-2 bg-dark">
             <li class="list-group-item bg-success text-white">Id:  ${data.getId()}</li>
-            <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
-            <li class="list-group-item bg-success text-white">GitHub: <a href="https://github.com/${data.getGitHub()}">https://github.com/${data.getGitHub()}</a></li>
+            <li class="list-group-item bg-success text-white">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
+            <li class="list-group-item bg-success text-white">GitHub: <a href="https://github.com/${data.getGitHub()}" target="_blank">https://github.com/${data.getGitHub()}</a></li>
         </ul>
     </div>
     `;
 }
 
 function internCard(data) { 
-    //console.log(JSON.stringify(data))
     return `
     <div class="card text-white bg-success border border-2" style="width: 18rem;">
         <div class="card-body">
@@ -44,7 +41,7 @@ function internCard(data) {
         </div>
         <ul class="list-group list-group-flush p-2 bg-dark">
             <li class="list-group-item bg-success text-white">Id: ${data.getId()}</li>
-            <li class="list-group-item bg-success text-white">Email: ${data.getEmail()}</li>
+            <li class="list-group-item bg-success text-white">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
             <li class="list-group-item bg-success text-white">School: ${data.getSchool()}</li>
         </ul>
     </div>`

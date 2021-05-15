@@ -161,12 +161,12 @@ function createAnother(data) {
 }
 
 function createFile(data) {
-    writeToFile('../../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
+    writeToFile('../Team-Profile-Generator-JG/dist/index.html', generateHTML(data))
     console.log('Successfully generated HTML file in "dist" folder')
     
 }
 
-askEmployeeQuestions();
+//askEmployeeQuestions();
     
 
-
+module.exports = askEmployeeQuestions;
